@@ -1,13 +1,15 @@
-import './App.css';
-import { Greet } from './components/Greet';
+import "./App.css";
+import { Heading } from "./components/Heading";
+import Status from "./components/Status";
 
 function App() {
   return (
     <div className="App">
-      <Greet name="Vishwas" />
+      <Status status="loading" />
+      <Heading/>
+      
     </div>
   );
 }
 export default App;
-
 
