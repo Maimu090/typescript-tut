@@ -1,15 +1,12 @@
 import "./App.css";
-import { Heading } from "./components/Heading";
-import Status from "./components/Status";
-import { Oscar } from "./components/Oscar";
+import { Button } from "./components/Button";
+
 function App() {
   return (
     <div className="App">
-      <Status status="loading" />
-      <Heading>Hello World</Heading>
-    <Oscar>
-      <Heading>Oscar goes to Leonardo Dicpario!</Heading>
-    </Oscar>
+     <Button handleClick={(event, id) => {
+      console.log("Button clicked", event, id);
+    }} />
     </div>
   );
 }
