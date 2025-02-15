@@ -3,10 +3,17 @@ import { useReducer } from 'react'
 type CounterState = {
   count: number
 }
-type CounterAction = {
-  type: string
+
+type UpdateAction = {
+  type: 'increment' | 'decrement'
   payload: number
 }
+
+type ResetAction = {
+  type: 'reset'
+}
+
+type CounterAction = UpdateAction | ResetAction
 
 const initialState = { count: 0 }
 
@@ -15,9 +22,9 @@ const initialState = { count: 0 }
 function reducer(state: CounterState, action: CounterAction) {
   switch (action.type) {
     case 'increment':
-      return { count: state.count + 1 }
+      return { count: state.count + action.payload }
     case 'decrement':
-      return { count: state.count - 1 }
+      return { count: state.count - action.payload }
     case 'reset':
       return initialState
     default:
@@ -30,7 +37,7 @@ export const Counter = () => {
   return (
     <>
       Count: {state.count}
-      
+      <button onClick={() => dispatch({ type: 'reset'})}>Reset</button>
       <button onClick={() => dispatch({ type: 'decrement', payload: 10 })}>-</button>
       <button onClick={() => dispatch({ type: 'increment', payload: 10 })}>+</button>
     </>
