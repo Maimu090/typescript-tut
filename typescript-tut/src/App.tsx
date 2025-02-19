@@ -1,12 +1,10 @@
 import "./App.css";
-import { UserContextProvider } from "./components/context/User.Context";
-import { User } from "./components/context/User";
+import { Counter } from "./components/class/Counter";
+
 function App() {
     return (
         <div>
-           <UserContextProvider>
-            <User/>
-           </UserContextProvider>
+         <Counter message= 'This count value is '/>
         </div>
     )
 }
